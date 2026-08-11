@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sopa de Letras</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ===== PANTALLA DE MENÚ ===== -->
+    <section id="screen-menu" class="screen active">
+      <h1 class="game-title">SOPA DE LETRAS</h1>
+      <p class="subtitle">Encuentra todas las palabras ocultas</p>
+
+      <div class="menu-panel">
+        <h2>🗂️ Categoría</h2>
+        <div id="category-buttons" class="button-grid"></div>
+
+        <h2>🎯 Nivel de dificultad</h2>
+        <div id="level-buttons" class="button-grid"></div>
+
+        <div class="menu-actions">
+          <button id="btn-start" class="btn btn-primary btn-big">▶ Jugar</button>
+          <button id="btn-sound-menu" class="btn btn-secondary">🔊 Sonido: ON</button>
+        </div>
+      </div>
+
+      <div class="stats-panel">
+        <h2>🏆 Tu progreso</h2>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-label">Mejor puntuación</span><span id="stat-best" class="stat-value">0</span></div>
+          <div class="stat"><span class="stat-label">Nivel desbloqueado</span><span id="stat-level" class="stat-value">Fácil</span></div>
+          <div class="stat"><span class="stat-label">Partidas completadas</span><span id="stat-games" class="stat-value">0</span></div>
+          <div class="stat"><span class="stat-label">Mejor tiempo</span><span id="stat-time" class="stat-value">--:--</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PANTALLA DE JUEGO ===== -->
+    <section id="screen-game" class="screen">
+      <header class="hud">
+        <div class="hud-item"><span class="hud-icon">⭐</span><span id="hud-score">0</span></div>
+        <div class="hud-item"><span class="hud-icon">⏱️</span><span id="hud-time">05:00</span></div>
+        <div class="hud-item"><span class="hud-icon">🔎</span><span id="hud-found">0/0</span></div>
+      </header>
+
+      <div id="grid-container" class="grid-container"></div>
+
+      <div class="word-list-panel">
+        <h2>PALABRAS:</h2>
+        <div id="word-list" class="word-list"></div>
+      </div>
+
+      <div class="game-actions">
+        <button id="btn-newgame" class="btn btn-secondary">🔄 Nuevo juego</button>
+        <button id="btn-restart" class="btn btn-secondary">↺ Reiniciar</button>
+        <button id="btn-pause" class="btn btn-secondary">⏸ Pausa</button>
+        <button id="btn-sound-game" class="btn btn-secondary">🔊</button>
+      </div>
+    </section>
+
+    <!-- ===== OVERLAY: PAUSA ===== -->
+    <div id="overlay-pause" class="overlay">
+      <div class="modal">
+        <h2>⏸ PAUSA</h2>
+        <p>El juego está en pausa.</p>
+        <div class="modal-actions">
+          <button id="btn-resume" class="btn btn-primary">▶ Continuar</button>
+          <button id="btn-restart-pause" class="btn btn-secondary">↺ Reiniciar</button>
+          <button id="btn-menu-pause" class="btn btn-secondary">🏠 Menú</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== OVERLAY: VICTORIA ===== -->
+    <div id="overlay-victory" class="overlay">
+      <div class="modal">
+        <h2 class="celebrate">🎉 ¡FELICIDADES! 🎉</h2>
+        <p class="modal-msg">"Encontraste todas las palabras"</p>
+        <div class="final-stats">
+          <p>⭐ Puntuación final: <b id="victory-score">0</b></p>
+          <p>⏱️ Tiempo utilizado: <b id="victory-time">00:00</b></p>
+          <p>🔎 Palabras encontradas: <b id="victory-found">0/0</b></p>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-again" class="btn btn-primary">▶ Jugar nuevamente</button>
+          <button id="btn-next" class="btn btn-primary">➡ Siguiente nivel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== OVERLAY: TIEMPO AGOTADO ===== -->
+    <div id="overlay-gameover" class="overlay">
+      <div class="modal">
+        <h2>⏰ ¡TIEMPO AGOTADO!</h2>
+        <p class="modal-msg">Se terminó el tiempo</p>
+        <div class="final-stats">
+          <p>⭐ Puntuación obtenida: <b id="over-score">0</b></p>
+          <p>🔎 Palabras encontradas: <b id="over-found">0/0</b></p>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-newgame-over" class="btn btn-primary">🔄 Nuevo juego</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== OVERLAY: FALTA SELECCIÓN ===== -->
+    <div id="overlay-needselection" class="overlay">
+      <div class="modal">
+        <h2>⚠️ Selecciona opciones</h2>
+        <p class="modal-msg">Elige una categoría y un nivel para comenzar.</p>
+        <div class="modal-actions">
+          <button id="btn-ok-needselection" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
